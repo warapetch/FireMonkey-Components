@@ -1,0 +1,47 @@
+package Pk_Wrp_FMX;
+
+{$R *.res}
+{$R 'WrpFMX_Pack.dcr'}
+{$IFDEF IMPLICITBUILDING This IFDEF should not be used by users}
+{$ALIGN 8}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO OFF}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION OFF}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO ON}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES ON}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST OFF}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$DEFINE DEBUG}
+{$ENDIF IMPLICITBUILDING}
+{$DESCRIPTION 'Warapetch FMX pack'}
+{$IMPLICITBUILD ON}
+
+requires
+  rtl,
+  dbrtl,
+  fmx,
+  bindengine,
+  bindcomp;
+
+contains
+  UWrpFMX.ComboBox in 'UWrpFMX.ComboBox.pas',
+  UWrpFMX.Checkbox in 'UWrpFMX.Checkbox.pas',
+  UWrpFMX.Edit in 'UWrpFMX.Edit.pas',
+  UWrpFMX.DlgThaiCalendar in 'calendar\UWrpFMX.DlgThaiCalendar.pas' {FrmFmxDlgThaiCalendar},
+  UWrpFMX.DlgThaiDateEntry in 'calendar\UWrpFMX.DlgThaiDateEntry.pas' {FrmFmxDlgThaiDateEntry},
+  UWrpFMX.EditDate in 'UWrpFMX.EditDate.pas';
+
+end.

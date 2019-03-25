@@ -1,0 +1,413 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 503
+  ClientWidth = 800
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object WrpFMXComboBox1: TWrpFMXComboBox
+    Items.Strings = (
+      #3648#3621#3639#3629#3585' - A'
+      #3648#3621#3639#3629#3585' - B')
+    Position.X = 72.000000000000000000
+    Position.Y = 112.000000000000000000
+    Size.Width = 188.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    OnChange = WrpFMXComboBox1Change
+    Values.Strings = (
+      'A'
+      'B')
+  end
+  object Label1: TLabel
+    Position.X = 72.000000000000000000
+    Position.Y = 88.000000000000000000
+    Text = 'Label1'
+  end
+  object Button1: TButton
+    Position.X = 216.000000000000000000
+    Position.Y = 144.000000000000000000
+    TabOrder = 5
+    Text = 'Set Value'
+    OnClick = Button1Click
+  end
+  object Edit2: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 3
+    Text = '1/11/2019 0:58:00'
+    Position.X = 280.000000000000000000
+    Position.Y = 232.000000000000000000
+    Size.Width = 201.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+  end
+  object Edit3: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 2
+    Text = '1/11/2019'
+    Position.X = 168.000000000000000000
+    Position.Y = 232.000000000000000000
+    Size.Width = 97.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+  end
+  object Edit1: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 4
+    MaxLength = 1
+    FilterChar = 'ABab'
+    Text = 'A'
+    Position.X = 72.000000000000000000
+    Position.Y = 144.000000000000000000
+    Size.Width = 140.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    CharCase = ecUpperCase
+  end
+  object WrpFMXEdit1: TWrpFMXEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 6
+    KeyboardType = NumberPad
+    MaxLength = 10
+    FilterChar = '0123456789/'
+    Text = '1/11/2019'
+    Position.X = 240.000000000000000000
+    Position.Y = 8.000000000000000000
+    Size.Width = 100.000000000000000000
+    Size.Height = 38.000000000000000000
+    Size.PlatformDefault = False
+    ValueType = vtDate
+  end
+  object ListView1: TListView
+    ItemAppearanceClassName = 'TDynamicAppearance'
+    ItemEditAppearanceClassName = 'TDynamicAppearance'
+    HeaderAppearanceClassName = 'TListHeaderObjects'
+    FooterAppearanceClassName = 'TListHeaderObjects'
+    ItemIndex = 0
+    Position.X = 48.000000000000000000
+    Position.Y = 256.000000000000000000
+    Size.Width = 529.000000000000000000
+    Size.Height = 217.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 8
+    ItemAppearanceObjects.ItemObjects.ObjectsCollection = <
+      item
+        AppearanceObjectName = 'Text1'
+        AppearanceClassName = 'TTextObjectAppearance'
+        Appearance.Width = 87.000000000000000000
+        Appearance.Height = 44.000000000000000000
+      end
+      item
+        AppearanceObjectName = 'Text2'
+        AppearanceClassName = 'TTextObjectAppearance'
+        Appearance.Width = 95.000000000000000000
+        Appearance.PlaceOffset.X = 96.000000000000000000
+      end
+      item
+        AppearanceObjectName = 'Text3'
+        AppearanceClassName = 'TTextObjectAppearance'
+        Appearance.Width = 143.000000000000000000
+        Appearance.PlaceOffset.X = 208.000000000000000000
+      end
+      item
+        AppearanceObjectName = 'Text4'
+        AppearanceClassName = 'TTextObjectAppearance'
+        Appearance.Width = 47.000000000000000000
+        Appearance.PlaceOffset.X = 376.000000000000000000
+      end>
+    ItemAppearanceObjects.ItemEditObjects.ObjectsCollection = <
+      item
+        AppearanceObjectName = 'Text1'
+        AppearanceClassName = 'TTextObjectAppearance'
+      end>
+  end
+  object NavigatorPrototypeBindSource1: TBindNavigator
+    Position.X = 48.000000000000000000
+    Position.Y = 200.000000000000000000
+    Size.Width = 240.000000000000000000
+    Size.Height = 25.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 10
+    DataSource = PrototypeBindSource1
+    xRadius = 4.000000000000000000
+    yRadius = 4.000000000000000000
+  end
+  object WrpFMXEditDate2: TWrpFMXEditDate
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 26
+    Text = '01/11/2019'
+    Position.X = 344.000000000000000000
+    Position.Y = 168.000000000000000000
+    Size.Width = 113.000000000000000000
+    Size.Height = 33.000000000000000000
+    Size.PlatformDefault = False
+    YearPlus = 0
+    DisplayFormat = 'dd/mm/yyyy'
+  end
+  object WrpFMXEditDate3: TWrpFMXEditDate
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 25
+    Text = '1/11/2562'
+    Position.X = 464.000000000000000000
+    Position.Y = 168.000000000000000000
+    Size.Width = 113.000000000000000000
+    Size.Height = 33.000000000000000000
+    Size.PlatformDefault = False
+  end
+  object WrpFMXEditDate4: TWrpFMXEditDate
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 31
+    Text = '01 '#3614#3620#3624#3592#3636#3585#3634#3618#3609' 2562'
+    Position.X = 344.000000000000000000
+    Position.Y = 88.000000000000000000
+    Size.Width = 161.000000000000000000
+    Size.Height = 33.000000000000000000
+    Size.PlatformDefault = False
+    DisplayFormat = 'dd mmmm yyyy'
+  end
+  object WrpFMXEditDate1: TWrpFMXEditDate
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 27
+    Text = '01 '#3614'.'#3618'. 2562'
+    Position.X = 344.000000000000000000
+    Position.Y = 128.000000000000000000
+    Size.Width = 161.000000000000000000
+    Size.Height = 33.000000000000000000
+    Size.PlatformDefault = False
+    DisplayFormat = 'dd mmm yyyy'
+  end
+  object Button2: TButton
+    Position.X = 528.000000000000000000
+    Position.Y = 8.000000000000000000
+    Size.Width = 80.000000000000000000
+    Size.Height = 33.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 34
+    Text = 'EditMode'
+    OnClick = Button2Click
+  end
+  object WrpFMXEditDate5: TWrpFMXEditDate
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 30
+    Text = #3624'. 01 '#3614#3620#3624#3592#3636#3585#3634#3618#3609' 2562'
+    Position.X = 344.000000000000000000
+    Position.Y = 48.000000000000000000
+    Size.Width = 161.000000000000000000
+    Size.Height = 33.000000000000000000
+    Size.PlatformDefault = False
+    DisplayFormat = 'ddd dd mmmm yyyy'
+  end
+  object WrpFMXEditDate6: TWrpFMXEditDate
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 28
+    Text = #3624#3640#3585#3619#3660' 01 '#3614#3620#3624#3592#3636#3585#3634#3618#3609' 2562'
+    Position.X = 344.000000000000000000
+    Position.Y = 8.000000000000000000
+    Size.Width = 161.000000000000000000
+    Size.Height = 33.000000000000000000
+    Size.PlatformDefault = False
+    DisplayFormat = 'dddd dd mmmm yyyy'
+  end
+  object Label2: TLabel
+    Position.X = 24.000000000000000000
+    Position.Y = 80.000000000000000000
+    Size.Width = 49.000000000000000000
+    Size.Height = 33.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'value ='
+    TabOrder = 38
+  end
+  object Label3: TLabel
+    Position.X = 24.000000000000000000
+    Position.Y = 136.000000000000000000
+    Size.Width = 49.000000000000000000
+    Size.Height = 33.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'value ='
+    TabOrder = 37
+  end
+  object WrpFMXCheckBox1: TWrpFMXCheckBox
+    Position.X = 72.000000000000000000
+    Position.Y = 56.000000000000000000
+    Size.Width = 120.000000000000000000
+    Size.Height = 27.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 39
+    Text = #3648#3621#3639#3629#3585' A / B'
+    IsTrueValue = 'A'
+    IsFalseValue = 'B'
+  end
+  object Edit4: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 40
+    Text = 'dd mmmm yyyy'
+    Position.X = 512.000000000000000000
+    Position.Y = 88.000000000000000000
+    Size.Width = 153.000000000000000000
+    Size.Height = 33.000000000000000000
+    Size.PlatformDefault = False
+  end
+  object Button3: TButton
+    Position.X = 584.000000000000000000
+    Position.Y = 128.000000000000000000
+    TabOrder = 41
+    Text = 'Set Display'
+    OnClick = Button3Click
+  end
+  object WrpFMXEditDate7: TWrpFMXEditDate
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 29
+    Text = #3624'. 01 '#3614#3620#3624#3592#3636#3585#3634#3618#3609' 2019'
+    Position.X = 512.000000000000000000
+    Position.Y = 48.000000000000000000
+    Size.Width = 161.000000000000000000
+    Size.Height = 33.000000000000000000
+    Size.PlatformDefault = False
+    YearPlus = 0
+    DisplayFormat = 'ddd dd mmmm yyyy'
+  end
+  object PrototypeBindSource1: TPrototypeBindSource
+    AutoActivate = True
+    AutoPost = True
+    FieldDefs = <
+      item
+        Name = 'DateField1'
+        FieldType = ftDate
+        Generator = 'Date'
+        ReadOnly = False
+      end
+      item
+        Name = 'CurrencyField1'
+        FieldType = ftCurrency
+        Generator = 'Currency'
+        ReadOnly = False
+      end
+      item
+        Name = 'DateTimeField1'
+        FieldType = ftDateTime
+        Generator = 'DateTime'
+        ReadOnly = False
+      end
+      item
+        Name = 'Field1'
+        Generator = 'A'
+        Options = [optShuffle]
+        ReadOnly = False
+      end>
+    ScopeMappings = <>
+    Left = 648
+    Top = 328
+  end
+  object BindingsList1: TBindingsList
+    Methods = <>
+    OutputConverters = <>
+    Left = 652
+    Top = 389
+    object LinkListControlToField1: TLinkListControlToField
+      Category = 'Quick Bindings'
+      DataSource = PrototypeBindSource1
+      FieldName = 'CurrencyField1'
+      Control = ListView1
+      FillExpressions = <
+        item
+          SourceMemberName = 'CurrencyField1'
+          ControlMemberName = 'Text1'
+        end
+        item
+          SourceMemberName = 'DateField1'
+          ControlMemberName = 'Text2'
+        end
+        item
+          SourceMemberName = 'DateTimeField1'
+          ControlMemberName = 'Text3'
+        end
+        item
+          SourceMemberName = 'BoolField1'
+          ControlMemberName = 'Text4'
+        end>
+      FillHeaderExpressions = <>
+      FillBreakGroups = <>
+    end
+    object LinkControlToField1: TLinkControlToField
+      Category = 'Quick Bindings'
+      DataSource = PrototypeBindSource1
+      FieldName = 'DateField1'
+      Control = Edit3
+      Track = False
+    end
+    object LinkControlToField2: TLinkControlToField
+      Category = 'Quick Bindings'
+      DataSource = PrototypeBindSource1
+      FieldName = 'DateTimeField1'
+      Control = Edit2
+      Track = False
+    end
+    object LinkControlToField3: TLinkControlToField
+      Category = 'Quick Bindings'
+      DataSource = PrototypeBindSource1
+      FieldName = 'DateField1'
+      Control = WrpFMXEdit1
+      Track = False
+    end
+    object LinkPropertyToFieldValue: TLinkPropertyToField
+      Category = 'Quick Bindings'
+      DataSource = PrototypeBindSource1
+      FieldName = 'BoolField1'
+      Component = WrpFMXComboBox1
+      ComponentProperty = 'Value'
+    end
+    object LinkControlToField4: TLinkControlToField
+      Category = 'Quick Bindings'
+      DataSource = PrototypeBindSource1
+      FieldName = 'DateField1'
+      Control = WrpFMXEditDate1
+      Track = False
+    end
+    object LinkControlToField5: TLinkControlToField
+      Category = 'Quick Bindings'
+      DataSource = PrototypeBindSource1
+      FieldName = 'DateField1'
+      Control = WrpFMXEditDate2
+      Track = False
+    end
+    object LinkControlToField6: TLinkControlToField
+      Category = 'Quick Bindings'
+      DataSource = PrototypeBindSource1
+      FieldName = 'DateField1'
+      Control = WrpFMXEditDate4
+      Track = False
+    end
+    object LinkControlToField7: TLinkControlToField
+      Category = 'Quick Bindings'
+      DataSource = PrototypeBindSource1
+      FieldName = 'DateField1'
+      Control = WrpFMXEditDate3
+      Track = False
+    end
+    object LinkControlToField8: TLinkControlToField
+      Category = 'Quick Bindings'
+      DataSource = PrototypeBindSource1
+      FieldName = 'DateField1'
+      Control = WrpFMXEditDate5
+      Track = False
+    end
+    object LinkControlToField9: TLinkControlToField
+      Category = 'Quick Bindings'
+      DataSource = PrototypeBindSource1
+      FieldName = 'DateField1'
+      Control = WrpFMXEditDate6
+      Track = False
+    end
+    object LinkControlToField10: TLinkControlToField
+      Category = 'Quick Bindings'
+      DataSource = PrototypeBindSource1
+      FieldName = 'DateField1'
+      Control = WrpFMXEditDate7
+      Track = False
+    end
+  end
+end

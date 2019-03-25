@@ -1,0 +1,269 @@
+object FrmFmxDlgThaiCalendar: TFrmFmxDlgThaiCalendar
+  Left = 0
+  Top = 0
+  BorderStyle = None
+  Caption = 'ThaiCalendar'
+  ClientHeight = 409
+  ClientWidth = 310
+  Fill.Color = x00FFFFFF
+  Fill.Kind = Solid
+  Position = MainFormCenter
+  StyleBook = StyleBook1
+  Transparency = True
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  ShowHint = False
+  OnClose = FormClose
+  OnShow = FormShow
+  DesignerMasterStyle = 0
+  object pnBGCalendar: TPanel
+    Align = Center
+    Size.Width = 302.000000000000000000
+    Size.Height = 389.000000000000000000
+    Size.PlatformDefault = False
+    StyleLookup = 'pnBGCalendarStyle1'
+    TabOrder = 3
+    object LayoutBGCalendar: TLayout
+      Align = Center
+      Size.Width = 292.000000000000000000
+      Size.Height = 379.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      object pnBOTCalendar: TPanel
+        Align = Bottom
+        Position.Y = 343.000000000000000000
+        Size.Width = 292.000000000000000000
+        Size.Height = 36.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 3
+        object btnSetToday: TButton
+          StyledSettings = [Family, Style, FontColor]
+          Position.X = 3.000000000000000000
+          Size.Width = 80.000000000000000000
+          Size.Height = 36.000000000000000000
+          Size.PlatformDefault = False
+          StyleLookup = 'buttonstyle'
+          TabOrder = 1
+          Text = #3623#3633#3609#3609#3637#3657
+          TextSettings.Font.Size = 16.000000000000000000
+          OnClick = btnSetTodayClick
+        end
+        object btnSetOK: TButton
+          StyledSettings = [Family, Style]
+          Position.X = 126.000000000000000000
+          Size.Width = 80.000000000000000000
+          Size.Height = 36.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 2
+          Text = #3605#3585#3621#3591
+          TextSettings.Font.Size = 16.000000000000000000
+          TextSettings.FontColor = claGreen
+          OnClick = btnSetOKClick
+        end
+        object btnSetCancel: TButton
+          StyledSettings = [Family, Style]
+          Position.X = 209.000000000000000000
+          Size.Width = 80.000000000000000000
+          Size.Height = 36.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          Text = #3618#3585#3648#3621#3636#3585
+          TextSettings.Font.Size = 16.000000000000000000
+          TextSettings.FontColor = claRed
+          OnClick = btnSetCancelClick
+        end
+      end
+      object pnBOTDateEdit: TPanel
+        Align = Bottom
+        Position.Y = 307.000000000000000000
+        Size.Width = 292.000000000000000000
+        Size.Height = 36.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 4
+        object edDateSelect: TEdit
+          Touch.InteractiveGestures = [LongTap, DoubleTap]
+          TabOrder = 1
+          KeyboardType = NumberPad
+          TextSettings.Font.Size = 16.000000000000000000
+          Position.X = 126.000000000000000000
+          Position.Y = 2.000000000000000000
+          Size.Width = 129.000000000000000000
+          Size.Height = 32.000000000000000000
+          Size.PlatformDefault = False
+          StyledSettings = [Family, Style, FontColor]
+          OnKeyDown = edDateSelectKeyDown
+          OnExit = edDateSelectExit
+        end
+        object lbDateSelect: TLabel
+          StyledSettings = [Family, Style, FontColor]
+          Position.X = 19.000000000000000000
+          Position.Y = 5.000000000000000000
+          Size.Width = 97.000000000000000000
+          Size.Height = 25.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 16.000000000000000000
+          Text = #3623#3633#3609#3607#3637#3656' '#3607#3637#3656#3585#3635#3627#3609#3604
+          TabOrder = 0
+        end
+      end
+      object pnTOPCalendar: TPanel
+        Align = Top
+        Size.Width = 292.000000000000000000
+        Size.Height = 33.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 5
+        object lbCalendar_MONTH: TLabel
+          Align = Left
+          StyledSettings = [Family]
+          Margins.Left = 5.000000000000000000
+          Position.X = 53.000000000000000000
+          Size.Width = 100.000000000000000000
+          Size.Height = 33.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 18.000000000000000000
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
+          TextSettings.FontColor = claBlue
+          Text = #3614#3620#3624#3592#3636#3585#3634#3618#3609
+          TabOrder = 1
+        end
+        object lbCalendar_YEAR: TLabel
+          Align = Right
+          StyledSettings = [Family]
+          Position.X = 181.000000000000000000
+          Size.Width = 63.000000000000000000
+          Size.Height = 33.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 24.000000000000000000
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
+          TextSettings.FontColor = claBlue
+          Text = '2562'
+          TabOrder = 0
+        end
+        object btnMonth_Next: TButton
+          Align = Left
+          Position.X = 24.000000000000000000
+          Size.Width = 24.000000000000000000
+          Size.Height = 33.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 5
+          Text = '>'
+          OnClick = btnMonth_NextClick
+        end
+        object btnMonth_Prev: TButton
+          Align = Left
+          Size.Width = 24.000000000000000000
+          Size.Height = 33.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 4
+          Text = '<'
+          OnClick = btnMonth_PrevClick
+        end
+        object btnYear_Next: TButton
+          Align = Right
+          StyledSettings = [Family, Size, Style]
+          Position.X = 268.000000000000000000
+          Size.Width = 24.000000000000000000
+          Size.Height = 33.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 3
+          Text = '>'
+          TextSettings.FontColor = claRed
+          OnClick = btnYear_NextClick
+        end
+        object btnYear_Prev: TButton
+          Align = Right
+          StyledSettings = [Family, Size, Style]
+          Position.X = 244.000000000000000000
+          Size.Width = 24.000000000000000000
+          Size.Height = 33.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 2
+          Text = '<'
+          TextSettings.FontColor = claRed
+          OnClick = btnYear_PrevClick
+        end
+      end
+      object sgCalendar: TStringGrid
+        Align = Client
+        CanFocus = True
+        ClipChildren = True
+        Size.Width = 292.000000000000000000
+        Size.Height = 274.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 6
+        RowHeight = 40.000000000000000000
+        RowCount = 6
+        Options = [AlternatingRowBackground, ColLines, RowLines, AlwaysShowSelection, Tabs, Header]
+        OnSelectCell = sgCalendarSelectCell
+        OnCellClick = sgCalendarCellClick
+        OnCellDblClick = sgCalendarCellDblClick
+        Viewport.Width = 292.000000000000000000
+        Viewport.Height = 274.000000000000000000
+        object stCOL1: TStringColumn
+          Header = #3592'.'
+          ReadOnly = True
+          Size.Width = 40.000000000000000000
+        end
+        object stCOL2: TStringColumn
+          Header = #3629'.'
+          ReadOnly = True
+          Size.Width = 40.000000000000000000
+        end
+        object stCOL3: TStringColumn
+          Header = #3614'.'
+          ReadOnly = True
+          Size.Width = 40.000000000000000000
+        end
+        object stCOL4: TStringColumn
+          Header = #3614#3620'.'
+          Size.Width = 40.000000000000000000
+        end
+        object stCOL5: TStringColumn
+          Header = #3624'.'
+          ReadOnly = True
+          Size.Width = 40.000000000000000000
+        end
+        object stCOL6: TStringColumn
+          Header = #3626'.'
+          ReadOnly = True
+          Size.Width = 40.000000000000000000
+        end
+        object stCOL7: TStringColumn
+          Header = #3629#3634'.'
+          ReadOnly = True
+          Size.Width = 40.000000000000000000
+        end
+      end
+    end
+  end
+  object StyleBook1: TStyleBook
+    Styles = <
+      item
+      end
+      item
+        Platform = 'Windows 10 Desktop'
+        ResourcesBin = {
+          464D585F5354594C4520322E35010612706E424743616C656E6461725374796C
+          653103B80000545046300A5452656374616E676C6500095374796C654E616D65
+          0612706E424743616C656E6461725374796C653105416C69676E070643656E74
+          65720A46696C6C2E436F6C6F7207097846463434413946420748697454657374
+          080A53697A652E576964746805000000000000009707400B53697A652E486569
+          6768740500000000000080C207401453697A652E506C6174666F726D44656661
+          756C74080C5374726F6B652E436F6C6F7207097846464343434343430000}
+      end
+      item
+        Platform = 'AndroidL Light'
+        ResourcesBin = {
+          464D585F5354594C4520322E35010612706E424743616C656E6461725374796C
+          653103B20000545046300A5452656374616E676C6500095374796C654E616D65
+          0612706E424743616C656E6461725374796C653105416C69676E070643656E74
+          65720A46696C6C2E436F6C6F7207097846463434413946420748697454657374
+          080A53697A652E576964746805000000000000009707400B53697A652E486569
+          6768740500000000000080C207401453697A652E506C6174666F726D44656661
+          756C74080B5374726F6B652E4B696E6407044E6F6E650000}
+      end>
+    Left = 56
+    Top = 104
+  end
+end
