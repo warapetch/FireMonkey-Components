@@ -102,10 +102,11 @@ begin
 
   FValue  := 0;
   FYearPlus := 543; //Thai Year
+  FDisplayFormat := 'dd/mm/yyyy';
   FAutoPopupCalendar := True;
-  FCanEditText := True;
+  FCanEditText       := True;
 
-  FEditOnClick := OnClick;   //Keep Original OnClick
+  FEditOnClick := OnClick;       // Keep Original OnClick
   OnClick := DoOnDateEditClick; // Block Onclick Only Popup Calendar
 end;
 
@@ -172,6 +173,16 @@ function TWrpFMXEditDate.GetShowThaiDate(ADate : TDate) : String;
 var iYear,iMonth,iDay : Word;
     sDisplay : String;
 
+    function GetDayMonthStr(AValue : String) : String;
+    var sDay,sMonth : String;
+    begin
+        sDay := Copy(AValue,1,POS('/',Avalue)-1);
+           Delete(AValue,1,POS('/',Avalue));
+        sMonth := Copy(AValue,1,POS('/',Avalue)-1);
+
+        Result := sDay+'/'+sMonth+'/';
+    end;
+
 begin
      DecodeDate(ADate,iYear,iMonth,iDay);
      sDisplay := FormatDateTime(FDisplayFormat,ADate);
@@ -179,7 +190,14 @@ begin
      if ADate = 0 then
         Result := ''
      else
-     Result := Copy(sDisplay,1,Length(sDisplay)-4)+IntToStr(iYear+FYearPlus);
+     begin
+        if POS('/',sDisplay) > 0 then
+           begin
+              Result := GetDayMonthStr(sDisplay)+IntToStr(iYear+FYearPlus);
+           end
+        else
+        Result := Copy(sDisplay,1,Length(sDisplay)-4)+IntToStr(iYear+FYearPlus);
+     end;
 end;
 
 function TWrpFMXEditDate.CanObserve(const ID: Integer): Boolean;
