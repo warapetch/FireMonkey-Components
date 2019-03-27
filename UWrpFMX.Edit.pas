@@ -28,7 +28,7 @@ type
 
     procedure ObserverToggle(const AObserver: IObserver; const Value: Boolean);
     procedure SetValueType(const AValue: TWrpValueType);
-    procedure SetValue(const AValue: Variant);
+    procedure SetValue(const AValue: String);
 
     function Var2Text(AValue: Variant): String;
     function Str2Date(AValue: String): TDate;
@@ -38,10 +38,9 @@ type
 
   protected
     { Protected declarations }
-    FValue  : Variant;
+    FValue  : String;
 
-    function GetValue : Variant;
-    //function GetVariantType(AValue : Variant) : Integer;
+    function GetValue : String;
     procedure DoExit;Override;
 
     { declaration is in System.Classes }
@@ -57,7 +56,7 @@ type
     function AsInteger : Integer;
     function AsFloat   : Double;
 
-    property Value : Variant read GetValue write SetValue;
+    property Value : String read GetValue write SetValue;
   published
     { Published declarations }
     //New
@@ -92,7 +91,7 @@ procedure TWrpFMXEdit.DoExit;
 begin
   inherited;
 
-//  Fvalue := GetValue;
+  Fvalue := GetValue;
 
   TLinkObservers.ControlChanged(Self);
 end;
@@ -137,47 +136,9 @@ begin
      Result := AValue;
 end;
 
-{function TWrpFMXEdit.GetVariantType(AValue : Variant) : Integer;
-var typeString : String;
-begin
-     Result := VarType(AValue) and VarTypeMask;
-
-    case Result of
-    varEmpty     : typeString := 'varEmpty';     //0
-    varNull      : typeString := 'varNull';      //1
-    varSmallInt  : typeString := 'varSmallInt';  //2
-    varInteger   : typeString := 'varInteger';   //3
-    varSingle    : typeString := 'varSingle';    //4
-    varDouble    : typeString := 'varDouble';    //5 // asDATE
-    varCurrency  : typeString := 'varCurrency';  //6
-    varDate      : typeString := 'varDate';      //7
-    varOleStr    : typeString := 'varOleStr';    //8
-    varDispatch  : typeString := 'varDispatch';  //9
-    varError     : typeString := 'varError';     //10
-    varBoolean   : typeString := 'varBoolean';   //11
-    varVariant   : typeString := 'varVariant';   //12
-    varUnknown   : typeString := 'varUnknown';   //13
-    varByte      : typeString := 'varByte';      //17
-    varWord      : typeString := 'varWord';      //18
-    varLongWord  : typeString := 'varLongWord';  //19
-    varInt64     : typeString := 'varInt64';     //20
-    varStrArg    : typeString := 'varStrArg';    //72
-    varString    : typeString := 'varString';    //256,258
-    varAny       : typeString := 'varAny';       //257
-    varTypeMask  : typeString := 'varTypeMask';  //4095
-  end;
-
-end;}
-
-function TWrpFMXEdit.GetValue : Variant;
+function TWrpFMXEdit.GetValue : String;
 begin
    Result := StringReplace(Text,',','',[rfReplaceAll]); //Remove ","
-   case FValueType of
-      vtText    : Result := Text;
-      vtInteger : Result := Str2Int(Text);
-      vtFloat   : Result := Str2Float(Text);
-      vtDate    : Result := Str2Date(Text);
-   end;
 end;
 
 function TWrpFMXEdit.AsDate: TDate;
@@ -227,20 +188,12 @@ begin
          if Supports(AObserver, IEditLinkObserver, LEditLinkObserver) then
             Enabled := not(LEditLinkObserver.IsReadOnly) and LEditLinkObserver.IsEditing;
       end
-   //else
-   //Enabled := True;
+   else
+   Enabled := True;
 end;
 
-procedure TWrpFMXEdit.SetValue(const AValue: Variant);
+procedure TWrpFMXEdit.SetValue(const AValue: String);
 begin
-     // Value is DATE
-   {  if (GetVariantType(AValue) = varDate)  or
-        (
-        (GetVariantType(AValue) = varDouble) or  //Double as Date
-        (FValueType = vtDate)  //set ValueType as Date
-        ) then
-        FValue := AValue
-     else  }
      FValue := AValue;
      //---------------------------------------
 
