@@ -28,21 +28,20 @@ type
 
     procedure ObserverToggle(const AObserver: IObserver; const Value: Boolean);
     procedure SetValueType(const AValue: TWrpValueType);
-    procedure SetValue(const AValue: String);
+    procedure SetValue(const AValue: Variant);
 
     function Var2Text(AValue: Variant): String;
     function Str2Date(AValue: String): TDate;
-    function Str2Float(AText: String): Double;
-    function Str2Int(AText: String): Integer;
+    function Str2Float(AValue: String): Double;
+    function Str2Int(AValue: String): Integer;
     function GetAbout: String;
 
   protected
     { Protected declarations }
-    FValue  : String;
-    FDateValue : TDate;
+    FValue  : Variant;
 
-    function GetValue : String;
-    function GetVariantType(AValue : Variant) : Integer;
+    function GetValue : Variant;
+    //function GetVariantType(AValue : Variant) : Integer;
     procedure DoExit;Override;
 
     { declaration is in System.Classes }
@@ -54,11 +53,11 @@ type
     constructor Create(AOwner : TComponent); Override;
     destructor Destroy;Override;
 
-    function AsDate : TDate;
+    function AsDate    : TDate;
     function AsInteger : Integer;
-    function AsFloat : Double;
+    function AsFloat   : Double;
 
-    property Value : String read GetValue write SetValue;
+    property Value : Variant read GetValue write SetValue;
   published
     { Published declarations }
     //New
@@ -93,7 +92,7 @@ procedure TWrpFMXEdit.DoExit;
 begin
   inherited;
 
-  Fvalue := GetValue;
+//  Fvalue := GetValue;
 
   TLinkObservers.ControlChanged(Self);
 end;
@@ -111,35 +110,34 @@ begin
    Result := StrToDate(AValue);
 end;
 
-function TWrpFMXEdit.Str2Int(AText : String) : Integer;
+function TWrpFMXEdit.Str2Int(AValue : String) : Integer;
 begin
-      if AText = '' then
+      if AValue = '' then
          Result := 0
       else
       begin
-         AText  := StringReplace(AText,',','',[rfReplaceAll]);
-         Result := StrToInt(AText);
+         AValue  := StringReplace(AValue,',','',[rfReplaceAll]);
+         Result := StrToInt(AValue);
       end;
 end;
 
-function TWrpFMXEdit.Str2Float(AText : String) : Double;
+function TWrpFMXEdit.Str2Float(AValue : String) : Double;
 begin
-      if AText = '' then
+      if AValue = '' then
          Result := 0
       else
       begin
-         AText := StringReplace(AText,',','',[rfReplaceAll]);
-         Result := StrToFloat(AText);
+         AValue := StringReplace(AValue,',','',[rfReplaceAll]);
+         Result := StrToFloat(AValue);
       end;
 end;
-
 
 function TWrpFMXEdit.Var2Text(AValue : Variant) : String;
 begin
      Result := AValue;
 end;
 
-function TWrpFMXEdit.GetVariantType(AValue : Variant) : Integer;
+{function TWrpFMXEdit.GetVariantType(AValue : Variant) : Integer;
 var typeString : String;
 begin
      Result := VarType(AValue) and VarTypeMask;
@@ -169,11 +167,17 @@ begin
     varTypeMask  : typeString := 'varTypeMask';  //4095
   end;
 
-end;
+end;}
 
-function TWrpFMXEdit.GetValue : String;
+function TWrpFMXEdit.GetValue : Variant;
 begin
-   Result := Text;
+   Result := StringReplace(Text,',','',[rfReplaceAll]); //Remove ","
+   case FValueType of
+      vtText    : Result := Text;
+      vtInteger : Result := Str2Int(Text);
+      vtFloat   : Result := Str2Float(Text);
+      vtDate    : Result := Str2Date(Text);
+   end;
 end;
 
 function TWrpFMXEdit.AsDate: TDate;
@@ -227,16 +231,16 @@ begin
    //Enabled := True;
 end;
 
-procedure TWrpFMXEdit.SetValue(const AValue: String);
+procedure TWrpFMXEdit.SetValue(const AValue: Variant);
 begin
      // Value is DATE
-     if (GetVariantType(AValue) = varDate)  or
+   {  if (GetVariantType(AValue) = varDate)  or
         (
         (GetVariantType(AValue) = varDouble) or  //Double as Date
         (FValueType = vtDate)  //set ValueType as Date
         ) then
         FValue := AValue
-     else
+     else  }
      FValue := AValue;
      //---------------------------------------
 
